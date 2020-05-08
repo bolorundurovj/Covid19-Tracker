@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { GlobalDataSummary } from '../models/global-data';
 
 @Injectable({
   providedIn: 'root',
@@ -13,11 +14,19 @@ export class DataServiceService {
     return this.http
       .get(this.globalDataUrl, { responseType: 'text' })
       .pipe(map((result) => {
+        let data : GlobalDataSummary[] = [];
         let rows = result.split('\n');
-        console.log(rows);
+        rows.splice(0,1);
         rows.forEach(rows => {
-          let cols = rows.split(',');
-          console.log(cols);
+          let cols = rows.split(/,(?=\S)/);
+          data.push({
+            country : cols[3],
+            confirmed : +cols[7],
+            deaths : +cols[8],
+            recovered : +cols[9],
+            active : +cols[10],
+          })
+          console.log(data);
 
         })
 
