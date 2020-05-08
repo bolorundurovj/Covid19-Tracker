@@ -10,10 +10,8 @@ export class DataServiceService {
   constructor(private http: HttpClient) {}
 
   getGlobalData() {
-    return this.http.get(this.globalDataUrl).pipe(
-      map((result) => {
-        console.log(result);
-      })
-    );
+    return this.http
+      .get(this.globalDataUrl, { responseType: 'text' })
+      .pipe(map((result) => {}));
   }
 }
