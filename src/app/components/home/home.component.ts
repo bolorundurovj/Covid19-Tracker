@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from '../../services/data-service.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private dataServive: DataServiceService) { }
+  constructor(private dataService : DataServiceService) { }
 
   ngOnInit(): void {
+    this.dataService.getGlobalData().subscribe(
+      {
+        next: (result)=>{
+          console.log(result);
+
+        }
+      }
+    )
   }
 
 }
