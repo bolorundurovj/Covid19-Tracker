@@ -12,6 +12,16 @@ export class DataServiceService {
   getGlobalData() {
     return this.http
       .get(this.globalDataUrl, { responseType: 'text' })
-      .pipe(map((result) => {}));
+      .pipe(map((result) => {
+        let rows = result.split('\n');
+        console.log(rows);
+        rows.forEach(rows => {
+          let cols = rows.split(',');
+          console.log(cols);
+
+        })
+
+        return [];
+      }));
   }
 }
