@@ -2,14 +2,43 @@
   <h1 class="display-4">Covid19 Tracker</h1>
   <hr />
   <app-dashboard-cards
-  [totalActive]="totalActive"
-  [totalConfirmed]="totalConfirmed"
-  [totalRecovered]="totalRecovered"
-  [totalDeaths]="totalDeaths"
+    [totalActive]="totalActive"
+    [totalConfirmed]="totalConfirmed"
+    [totalRecovered]="totalRecovered"
+    [totalDeaths]="totalDeaths"
   ></app-dashboard-cards>
 </div>
 
-<hr>
+<hr />
+
+<div class="ui form">
+  <div class="inline fields">
+    <label for="fruit">Select Cases:</label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
+        <label>Confirmed</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>Active</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>Recovered</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" tabindex="0" class="hidden">
+        <label>Deaths</label>
+      </div>
+    </div>
+  </div>
 
 <div class="row">
   <div class="col">
