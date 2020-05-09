@@ -17,8 +17,8 @@ export class DataServiceService {
         let raw = {};
         let rows = result.split('\n');
         rows.splice(0, 1);
-        rows.forEach((rows) => {
-          let cols = rows.split(/,(?=\S)/);
+        rows.forEach((row) => {
+          let cols = row.split(/,(?=\S)/);
           let cs = {
             country: cols[3],
             confirmed: +cols[7],
@@ -38,8 +38,8 @@ export class DataServiceService {
           else{
             raw[cs.country] = cs;
           }
-        });
-        return <GlobalDataSummary>Object.values(raw);
+        })
+        return <GlobalDataSummary[]>Object.values(raw);
       })
     );
   }
