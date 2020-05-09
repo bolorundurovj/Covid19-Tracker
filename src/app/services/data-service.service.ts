@@ -32,10 +32,14 @@ export class DataServiceService {
             temp.confirmed = cs.confirmed + temp.confirmed;
             temp.deaths = cs.deaths + temp.deaths;
             temp.recovered = cs.recovered + temp.recovered;
+
+            raw[cs.country] = temp;
           }
-          raw[cs.country] = temp;
+          else{
+            raw[cs.country] = cs;
+          }
         });
-        console.log(data);
+        console.log(raw);
       })
     );
   }
