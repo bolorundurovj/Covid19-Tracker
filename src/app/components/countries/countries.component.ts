@@ -14,6 +14,9 @@ export class CountriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getGlobalData().subscribe(result => {
+      this.data.forEach(cs => {
+        
+      })
 
     });
   }
