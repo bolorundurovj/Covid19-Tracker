@@ -39,7 +39,7 @@ export class DataServiceService {
             raw[cs.country] = cs;
           }
         });
-        return Object.values(raw);
+        return <GlobalDataSummary>Object.values(raw);
       })
     );
   }
