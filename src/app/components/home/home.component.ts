@@ -31,22 +31,22 @@ export class HomeComponent implements OnInit {
     this.globalData.forEach(cs => {
       let value : number;
       if(caseType == 'c'){
-        if(cs.confirmed > 3000){
+        if(cs.confirmed > 2000){
           value = cs.confirmed;
         }
       }
       if(caseType == 'r'){
-        if(cs.confirmed > 3000){
+        if(cs.recovered > 3000){
           value = cs.recovered;
         }
       }
       if(caseType == 'a'){
-        if(cs.confirmed > 3000){
+        if(cs.active > 2000){
           value = cs.active;
         }
       }
       if(caseType == 'd'){
-        if(cs.confirmed > 3000){
+        if(cs.deaths > 1000){
           value = cs.deaths;
         }
       }
