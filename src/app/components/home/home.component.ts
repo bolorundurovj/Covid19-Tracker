@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../../services/data-service.service';
+import { GlobalDataSummary } from '../../models/global-data';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ export class HomeComponent implements OnInit {
   totalActive = 0;
   totalDeaths = 0;
   totalRecovered = 0;
+  globalData : GlobalDataSummary[] ;
 
   constructor(private dataService: DataServiceService) {}
 
