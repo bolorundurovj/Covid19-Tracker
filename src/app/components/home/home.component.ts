@@ -22,18 +22,16 @@ export class HomeComponent implements OnInit {
   constructor(private dataService: DataServiceService) {};
 
   initChart(){
+    let datatable = [];
+    datatable.push(["Country", "Cases"])
+    this.globalData.forEach(cs => {
+      datatable.push[cs.country, cs.confirmed]
+    })
     this.pieChart = {
       chartType: 'PieChart',
-      dataTable: [
-        ['Task', 'Hours per Day'],
-        ['Work',     11],
-        ['Eat',      2],
-        ['Commute',  2],
-        ['Watch TV', 2],
-        ['Sleep',    7]
-      ],
+      dataTable: datatable,
       //firstRowIsData: true,
-      options: {'title': 'Tasks'},
+      options: {'Country': 'Cases'},
     };
   }
 
