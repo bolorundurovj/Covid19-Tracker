@@ -37,6 +37,12 @@ export class HomeComponent implements OnInit {
       //firstRowIsData: true,
       options: {height: 500},
     };
+    this.columnChart = {
+      chartType: 'PieChart',
+      dataTable: datatable,
+      //firstRowIsData: true,
+      options: {height: 500},
+    };
   }
 
   ngOnInit(): void {
