@@ -64,4 +64,8 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+  updateChart(input: HTMLInputElement){
+    console.log(input);
+
+  }
 }
