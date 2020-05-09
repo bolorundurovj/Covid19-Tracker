@@ -28,6 +28,13 @@ export class DataServiceService {
             active : +cols[10],
           };
           let temp: GlobalDataSummary = raw[cs.country];
+          if(temp){
+            temp.active = cs.active + temp.active;
+            temp.confirmed = cs.confirmed + temp.confirmed;
+            temp.deaths = cs.deaths + temp.deaths;
+            temp.recovered = cs.recovered + temp.recovered;
+
+          }
           raw[cs.country] = cs;
           console.log(data);
 
