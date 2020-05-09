@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     this.dataService.getGlobalData().subscribe(
       {
         next: (result)=>{
-          //console.log(result);
+          console.log(result);
 
         }
       }
