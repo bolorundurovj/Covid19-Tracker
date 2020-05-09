@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
       options: {height: 500},
     };
     this.columnChart = {
-      chartType: 'PieChart',
+      chartType: 'ColumnChart',
       dataTable: datatable,
       //firstRowIsData: true,
       options: {height: 500},
