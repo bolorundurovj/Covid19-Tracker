@@ -29,7 +29,9 @@ export class HomeComponent implements OnInit {
     let datatable = [];
     datatable.push(["Country", "Cases"])
     this.globalData.forEach(cs => {
-      datatable.push([cs.country, cs.confirmed]);
+      if(cs.confirmed > 3000){
+        datatable.push([cs.country, cs.confirmed]);
+      }
     })
     this.pieChart = {
       chartType: 'PieChart',
