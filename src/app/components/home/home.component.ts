@@ -18,9 +18,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getGlobalData().subscribe({
-      next: (result) => {
+      next: ( result) => {
         console.log(result);
-        //this.globalData = result;
+        this.globalData = result;
         result.forEach((cs) => {
           if (!Number.isNaN(cs.confirmed)) {
             this.totalActive += cs.active;
