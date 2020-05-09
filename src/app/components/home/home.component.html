@@ -1,5 +1,10 @@
 <div class="jumbotron bg-white">
   <h1 class="display-4">Covid19 Tracker</h1>
-  <hr>
-  <app-dashboard-cards></app-dashboard-cards>
+  <hr />
+  <app-dashboard-cards
+  [totalActive]="totalActive"
+  [totalConfirmed]="totalConfirmed"
+  [totalRecovered]="totalRecovered"
+  [totalDeaths]="totalDeaths"
+  ></app-dashboard-cards>
 </div>
