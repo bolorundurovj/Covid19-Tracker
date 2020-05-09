@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
-import { GlobalDataSummary } from 'src/app/models/global-data';
+import { GlobalDataSummary } from '../../models/global-data';
 
 @Component({
   selector: 'app-countries',
@@ -15,6 +15,7 @@ export class CountriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getGlobalData().subscribe(result => {
+      this.data = result;
       this.data.forEach(cs => {
         this.countries.push(cs.country);
       })
