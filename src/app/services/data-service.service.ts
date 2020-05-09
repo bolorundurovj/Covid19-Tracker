@@ -27,7 +27,7 @@ export class DataServiceService {
             recovered : +cols[9],
             active : +cols[10],
           };
-          data.push()
+          raw[cs.country] = cs;
           console.log(data);
 
         })
