@@ -6,7 +6,7 @@
     <div class="form-group col-lg-5 mx-auto">
       <label for="c" class="my-input">Select Country</label>
       <select name="" id="c" class="form-control">
-        <option value=""></option>
+        <option value="con" *ngFor='let con of countries'>{{con}}</option>
       </select>
     </div>
   </div>
