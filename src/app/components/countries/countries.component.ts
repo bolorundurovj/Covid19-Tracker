@@ -8,6 +8,10 @@ import { GlobalDataSummary } from '../../models/global-data';
   styleUrls: ['./countries.component.css']
 })
 export class CountriesComponent implements OnInit {
+  totalConfirmed = 0;
+  totalActive = 0;
+  totalDeaths = 0;
+  totalRecovered = 0;
 
   data: GlobalDataSummary[];
   countries: string[] = [];
