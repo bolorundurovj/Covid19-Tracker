@@ -27,7 +27,7 @@ export class DataServiceService {
             recovered : +cols[9],
             active : +cols[10],
           };
-          let temp = raw[cs.country];
+          let temp: GlobalDataSummary = raw[cs.country];
           raw[cs.country] = cs;
           console.log(data);
 
