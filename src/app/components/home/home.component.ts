@@ -12,6 +12,19 @@ export class HomeComponent implements OnInit {
   totalActive = 0;
   totalDeaths = 0;
   totalRecovered = 0;
+  pieChart: GoogleChartInterface = {
+    chartType: 'PieChart',
+    dataTable: [
+      ['Task', 'Hours per Day'],
+      ['Work',     11],
+      ['Eat',      2],
+      ['Commute',  2],
+      ['Watch TV', 2],
+      ['Sleep',    7]
+    ],
+    //firstRowIsData: true,
+    options: {'title': 'Tasks'},
+  };
   globalData : GlobalDataSummary[] ;
 
   constructor(private dataService: DataServiceService) {}
