@@ -15,17 +15,19 @@ export class DataServiceService {
       .get(this.globalDataUrl, { responseType: 'text' })
       .pipe(map((result) => {
         let data : GlobalDataSummary[] = [];
+        let raw = {};
         let rows = result.split('\n');
         rows.splice(0,1);
         rows.forEach(rows => {
           let cols = rows.split(/,(?=\S)/);
-          data.push({
+          let cs = {
             country : cols[3],
             confirmed : +cols[7],
             deaths : +cols[8],
             recovered : +cols[9],
             active : +cols[10],
-          })
+          };
+          data.push()
           console.log(data);
 
         })
