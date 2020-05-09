@@ -7,8 +7,15 @@
   [totalRecovered]="totalRecovered"
   [totalDeaths]="totalDeaths"
   ></app-dashboard-cards>
+</div>
 
-  <google-chart [data]="pieChart"></google-chart>
+<hr>
 
-  <google-chart [data]="columnChart"></google-chart>
+<div class="row">
+  <div class="col">
+    <google-chart [data]="columnChart"></google-chart>
+  </div>
+  <div class="col">
+    <google-chart [data]="pieChart"></google-chart>
+  </div>
 </div>
