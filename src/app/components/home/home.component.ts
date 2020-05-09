@@ -7,10 +7,10 @@ import { DataServiceService } from '../../services/data-service.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  totalConfirmed =0;
-  totalActive =0;
-  totalDeaths =0;
-  totalRecovered =0;
+  totalConfirmed = 0;
+  totalActive = 0;
+  totalDeaths = 0;
+  totalRecovered = 0;
 
   constructor(private dataService: DataServiceService) {}
 
@@ -19,14 +19,15 @@ export class HomeComponent implements OnInit {
       next: (result) => {
         console.log(result);
 
-        result.forEach(cs => {
-          if(!Number.isNaN(cs.confirmed))
-          this.totalActive += cs.active;
-          this.totalConfirmed += cs.confirmed;
-          this.totalDeaths += cs.deaths;
-          this.totalRecovered += cs.recovered;
-        })
-      }
-    })
+        result.forEach((cs) => {
+          if (!Number.isNaN(cs.confirmed)) {
+            this.totalActive += cs.active;
+            this.totalConfirmed += cs.confirmed;
+            this.totalDeaths += cs.deaths;
+            this.totalRecovered += cs.recovered;
+          }
+        });
+      },
+    });
   }
 }
