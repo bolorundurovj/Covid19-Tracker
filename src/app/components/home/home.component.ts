@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit {
     chartType: 'PieChart',
 
   };
+  columnChart: GoogleChartInterface = {
+    chartType: 'PieChart',
+
+  };
   globalData : GlobalDataSummary[] ;
 
   constructor(private dataService: DataServiceService) {};
