@@ -32,7 +32,7 @@ export class CountriesComponent implements OnInit {
         this.totalActive += cs.active;
         this.totalConfirmed += cs.confirmed;
         this.totalDeaths += cs.deaths;
-        this.totalRecovered += cs.recovered;
+        this.totalRecovered += cs.recovered; 
       }
     });
   }
