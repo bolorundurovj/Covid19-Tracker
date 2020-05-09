@@ -10,12 +10,13 @@ import { GlobalDataSummary } from 'src/app/models/global-data';
 export class CountriesComponent implements OnInit {
 
   data: GlobalDataSummary[];
+  countries: string[] = [];
   constructor(private service : DataServiceService) { }
 
   ngOnInit(): void {
     this.service.getGlobalData().subscribe(result => {
       this.data.forEach(cs => {
-        
+        this.countries.push(cs.country);
       })
 
     });
