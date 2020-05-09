@@ -29,27 +29,28 @@ export class HomeComponent implements OnInit {
     let datatable = [];
     datatable.push(["Country", "Cases"])
     this.globalData.forEach(cs => {
-      let value = '';
+      let value : number;
       if(caseType == 'c'){
         if(cs.confirmed > 3000){
-          datatable.push([cs.country, cs.confirmed]);
+          value = cs.confirmed;
         }
       }
       if(caseType == 'r'){
         if(cs.confirmed > 3000){
-          datatable.push([cs.country, cs.recovered]);
+          value = cs.recovered;
         }
       }
       if(caseType == 'a'){
         if(cs.confirmed > 3000){
-          datatable.push([cs.country, cs.active]);
+          value = cs.active;
         }
       }
       if(caseType == 'd'){
         if(cs.confirmed > 3000){
-          datatable.push([cs.country, cs.deaths]);
+          value = cs.deaths;
         }
       }
+      datatable.push([cs.country, value]);
     })
     this.pieChart = {
       chartType: 'PieChart',
