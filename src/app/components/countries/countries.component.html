@@ -6,8 +6,15 @@
     <div class="form-group col-lg-5 mx-auto">
       <label for="c" class="my-input">Select Country</label>
       <select name="" id="c" class="form-control">
-        <option value="con" *ngFor='let con of countries'>{{con}}</option>
+        <option value="con" *ngFor="let con of countries">{{ con }}</option>
       </select>
     </div>
+
+    <app-dashboard-cards
+      [totalActive]="totalActive"
+      [totalConfirmed]="totalConfirmed"
+      [totalRecovered]="totalRecovered"
+      [totalDeaths]="totalDeaths"
+    ></app-dashboard-cards>
   </div>
 </div>
