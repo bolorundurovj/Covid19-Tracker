@@ -23,10 +23,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private dataService: DataServiceService) {}
 
-  updateChart(input: HTMLInputElement) {
-    console.log(input.value);
-    this.initChart(input.value);
-  }
+
 
   initChart(caseType: string) {
     let datatable = [];
@@ -45,19 +42,21 @@ export class HomeComponent implements OnInit {
 
       datatable.push([cs.country, value]);
     });
-    this.pieChart = {
+    this.pieChart = Object.create({
       chartType: 'PieChart',
       dataTable: datatable,
       //firstRowIsData: true,
       options: { height: 500 },
-    };
-    this.columnChart = {
+    });
+    this.columnChart = Object.create({
       chartType: 'ColumnChart',
       dataTable: datatable,
       //firstRowIsData: true,
       options: { height: 500 },
-    };
+    });
+
   }
+
 
   ngOnInit(): void {
     this.dataService.getGlobalData().subscribe({
@@ -73,7 +72,12 @@ export class HomeComponent implements OnInit {
           }
         });
         this.initChart('c');
+        this.columnChart = Object.create(this.columnChart);
       },
     });
+  }
+  updateChart(input: HTMLInputElement) {
+    console.log(input.value);
+    this.initChart(input.value);
   }
 }
