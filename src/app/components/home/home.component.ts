@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, ViewChild,  } from '@angular/core';
 import { DataServiceService } from '../../services/data-service.service';
 import { GlobalDataSummary } from '../../models/global-data';
 import { GoogleChartInterface } from 'ng2-google-charts';
@@ -83,8 +83,6 @@ export class HomeComponent implements OnInit {
     });
 
 
-    this.cd.detectChanges();
-
   }
 
 
@@ -103,7 +101,7 @@ export class HomeComponent implements OnInit {
             this.totalRecovered += cs.recovered;
           }
         })
-        this.initChart('c');
+        this.initChart('d');
       }
     })
   }
