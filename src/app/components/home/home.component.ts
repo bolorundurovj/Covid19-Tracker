@@ -17,13 +17,18 @@ export class HomeComponent implements OnInit {
   globalData: GlobalDataSummary[];
 
   loading = true;
+  chart = {
+    PieChart: "PieChart",
+    ColumnChart: "ColumnChart",
+    options: {
+      height: 500,
+      animation: {
+        duration: 1000,
+        easing: 'out',
+      },
+  }
+  }
 
-  pieChart: GoogleChartInterface = {
-    chartType: 'PieChart',
-  };
-  columnChart: GoogleChartInterface = {
-    chartType: 'ColumnChart',
-  };
 
 
   constructor(private dataService: DataServiceService) {}
@@ -65,30 +70,7 @@ export class HomeComponent implements OnInit {
 
       //datatable.push([cs.country, value]);
     });
-    this.pieChart = {
-      chartType: 'PieChart',
-      dataTable: datatable,
-      //firstRowIsData: true,
-      options: {
-        height: 500,
-        animation: {
-          duration: 1000,
-          easing: 'out',
-        },
-      },
-    };
-    this.columnChart = {
-      chartType: 'ColumnChart',
-      dataTable: datatable,
-      //firstRowIsData: true,
-      options: {
-        height: 500,
-        animation: {
-          duration: 1000,
-          easing: 'out',
-        },
-      },
-    };
+  
   }
 
   ngOnInit(): void {
