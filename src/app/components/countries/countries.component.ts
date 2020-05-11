@@ -18,8 +18,8 @@ export class CountriesComponent implements OnInit {
   totalRecovered = 0;
   selectedCountryData: DateWiseData[];
   dateWiseData;
+  dataTable;
   loading = true;
-  datatable = [];
 
   chart = {
     LineChart: "LineChart",
@@ -62,10 +62,10 @@ export class CountriesComponent implements OnInit {
   }
 
   updateChart() {
-
-    //this.datatable.push(['Date', 'Cases']);
+    let dataTable = [];
+    dataTable.push(['Date', 'Cases']);
     this.selectedCountryData.forEach((cs) => {
-      this.datatable.push([cs.date, cs.cases]);
+      dataTable.push([cs.date, cs.cases]);
     });
 
   }
@@ -73,10 +73,10 @@ export class CountriesComponent implements OnInit {
   updateValues(country: string) {
     this.data.forEach((cs) => {
       if (cs.country == country) {
-        this.totalActive += cs.active;
-        this.totalConfirmed += cs.confirmed;
-        this.totalDeaths += cs.deaths;
-        this.totalRecovered += cs.recovered;
+        this.totalActive = cs.active;
+        this.totalConfirmed = cs.confirmed;
+        this.totalDeaths = cs.deaths;
+        this.totalRecovered = cs.recovered;
       }
     });
 
