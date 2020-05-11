@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { GlobalDataSummary } from '../models/global-data';
+import { DateWiseData } from '../models/date-wise-data';
 
 @Injectable({
   providedIn: 'root',
