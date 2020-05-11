@@ -23,8 +23,6 @@ export class HomeComponent implements OnInit {
   };
   globalData: GlobalDataSummary[];
 
-  @ViewChild('googleChart') googleChart: GoogleChartInterface;
-
   constructor(private dataService: DataServiceService) {}
 
 
