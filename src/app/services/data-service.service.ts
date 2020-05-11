@@ -28,6 +28,14 @@ export class DataServiceService {
           cols.splice(0, 4);
           console.log(con, cols);
           mainData[con] = [];
+
+          cols.forEach((value, index) => {
+            let dw: DateWiseData = {
+              cases: +value,
+              country: con,
+              date: new Date(Date.parse(dates[index]))
+            }
+          });
         });
 
         return result;
