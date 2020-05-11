@@ -17,6 +17,13 @@ export class DataServiceService {
       let headers = rows[0];
       let dates= headers.split(/,(?=\S)/);
       dates.splice(0, 4);
+      rows.splice(0, 1);
+      console.log(rows);
+
+      rows.forEach(row => {
+        let cols = row.split(/,(?=\S)/);
+      });
+
       return result;
     }))
   }
