@@ -117,8 +117,13 @@
               "devServerTarget": "Covid19-Tracker:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "Covid19-Tracker"
 }
