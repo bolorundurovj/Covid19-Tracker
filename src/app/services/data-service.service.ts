@@ -15,7 +15,8 @@ export class DataServiceService {
     return this.http.get(this.dateWiseDataUrl, { responseType: 'text' }).pipe(map((result) => {
       let rows = result.split('\n');
       let headers = rows[0];
-      let headerValues = headers.split(/,(?=\S)/);
+      let dates= headers.split(/,(?=\S)/);
+      dates.splice(0, 4);
       return result;
     }))
   }
