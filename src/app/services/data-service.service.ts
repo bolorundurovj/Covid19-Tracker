@@ -22,6 +22,10 @@ export class DataServiceService {
 
       rows.forEach(row => {
         let cols = row.split(/,(?=\S)/);
+        let con = cols[1];
+        cols.splice(0, 4);
+        console.log(con, cols);
+
       });
 
       return result;
