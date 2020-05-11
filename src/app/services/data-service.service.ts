@@ -16,7 +16,7 @@ export class DataServiceService {
     return this.http.get(this.dateWiseDataUrl, { responseType: 'text' }).pipe(
       map((result) => {
         let rows = result.split('\n');
-        console.log(rows);
+        //console.log(rows);
         let mainData = {};
         let headers = rows[0];
         let dates = headers.split(/,(?=\S)/);
@@ -27,7 +27,7 @@ export class DataServiceService {
           let cols = row.split(/,(?=\S)/);
           let con = cols[1];
           cols.splice(0, 4);
-          console.log(con, cols);
+          //console.log(con, cols);
           mainData[con] = [];
 
           cols.forEach((value, index) => {
@@ -39,9 +39,9 @@ export class DataServiceService {
             mainData[con].push(dw);
           });
         });
-        console.log(mainData);
+        //console.log(mainData);
 
-        return result;
+        return mainData;
       })
     );
   }

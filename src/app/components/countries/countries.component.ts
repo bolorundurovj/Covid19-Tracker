@@ -12,6 +12,7 @@ export class CountriesComponent implements OnInit {
   totalActive = 0;
   totalDeaths = 0;
   totalRecovered = 0;
+  dateWiseData;
 
   data: GlobalDataSummary[];
   countries: string[] = [];
@@ -26,7 +27,8 @@ export class CountriesComponent implements OnInit {
     });
 
     this.service.getDateWiseData().subscribe((result) => {
-      console.log(result);
+      //console.log(result);
+      this.dateWiseData = result;
     })
   }
 
