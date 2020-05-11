@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { DataServiceService } from '../../services/data-service.service';
 import { GlobalDataSummary } from '../../models/global-data';
-import { GoogleChartInterface } from 'ng2-google-charts';
+import { GoogleChartsModule } from 'angular-google-charts';
 import { from } from 'rxjs';
 
 @Component({
@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit {
         this.initChart('d');
       },
       complete: () => {
-        this.loading = false; 
+        this.loading = false;
       }
     });
   }
