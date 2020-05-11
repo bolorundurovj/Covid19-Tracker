@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   totalDeaths = 0;
   totalRecovered = 0;
   globalData: GlobalDataSummary[];
+  datatable = [];
 
   loading = true;
   chart = {
@@ -34,35 +35,35 @@ export class HomeComponent implements OnInit {
   constructor(private dataService: DataServiceService) {}
 
   initChart(caseType: string) {
-    let datatable = [];
-    datatable.push(['Country', 'Cases']);
+
+    //this.datatable.push(['Country', 'Cases']);
     this.globalData.forEach((cs) => {
       let value: number;
       if (caseType == 'c') {
         if (cs.confirmed > 2000) {
           value = cs.confirmed;
-          datatable.push([cs.country, value]);
+          this.datatable.push([cs.country, value]);
         }
       }
 
       if (caseType == 'r') {
         if (cs.recovered > 2000) {
           value = cs.recovered;
-          datatable.push([cs.country, value]);
+          this.datatable.push([cs.country, value]);
         }
       }
 
       if (caseType == 'a') {
         if (cs.active > 2000) {
           value = cs.active;
-          datatable.push([cs.country, value]);
+          this.datatable.push([cs.country, value]);
         }
       }
 
       if (caseType == 'd') {
         if (cs.deaths > 1000) {
           value = cs.deaths;
-          datatable.push([cs.country, value]);
+          this.datatable.push([cs.country, value]);
         }
       }
 
@@ -70,7 +71,7 @@ export class HomeComponent implements OnInit {
 
       //datatable.push([cs.country, value]);
     });
-  
+
   }
 
   ngOnInit(): void {
