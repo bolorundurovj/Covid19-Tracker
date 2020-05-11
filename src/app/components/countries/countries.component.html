@@ -17,24 +17,31 @@
       [totalDeaths]="totalDeaths"
     ></app-dashboard-cards>
 
-    <div class="card">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>No.</th>
-            <th>Cases</th>
-            <th>Date</th>
-          </tr>
-        </thead>
+    <div class="card row">
 
-        <tbody>
-          <tr *ngFor='let cs of selectedCountryData; index as i'>
-            <td>{{i+1}}</td>
-            <td>{{cs.date | date}}</td>
-            <td>{{cs.cases}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="row">
+        <google-chart [data]="selectedCountryData"></google-chart>
+      </div>
+
+      <div class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Cases</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor='let cs of selectedCountryData; index as i'>
+              <td>{{i+1}}</td>
+              <td>{{cs.date | date}}</td>
+              <td>{{cs.cases}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>
