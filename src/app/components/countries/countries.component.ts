@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { GlobalDataSummary } from '../../models/global-data';
 import { DateWiseData } from 'src/app/models/date-wise-data';
+import { GoogleChartInterface } from 'ng2-google-charts';
 
 @Component({
   selector: 'app-countries',
@@ -15,6 +16,10 @@ export class CountriesComponent implements OnInit {
   totalRecovered = 0;
   selectedCountryData: DateWiseData[];
   dateWiseData;
+
+  lineChart: GoogleChartInterface = {
+    chartType: 'LineChart',
+  };
 
   data: GlobalDataSummary[];
   countries: string[] = [];
@@ -31,7 +36,23 @@ export class CountriesComponent implements OnInit {
     this.service.getDateWiseData().subscribe((result) => {
       //console.log(result);
       this.dateWiseData = result;
+      this.updateChart();
     })
+  }
+
+  updateChart() {
+    let dataTable = [];
+    dataTable.push(['Cases', 'Date'])
+    this.selectedCountryData.forEach(cs => {
+      dataTable.push([cs.cases, cs.date])
+    })
+    this.lineChart = ({
+      chartType: 'LineChart',
+      dataTable: dataTable,
+      //firstRowIsData: true,
+      options: { height: 500 },
+    });
+
   }
 
   updateValues(country: string) {
