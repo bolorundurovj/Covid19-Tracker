@@ -18,6 +18,7 @@ export class CountriesComponent implements OnInit {
   totalRecovered = 0;
   selectedCountryData: DateWiseData[];
   dateWiseData;
+  loading = true;
 
   lineChart: GoogleChartInterface = {
     chartType: 'LineChart',
@@ -47,6 +48,7 @@ export class CountriesComponent implements OnInit {
         this.updateValues('Nigeria');
         this.selectedCountryData = this.dateWiseData['Nigeria'];
         this.updateChart();
+        this.loading = false;
       },
     });
   }
