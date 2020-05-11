@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
   chart = {
     PieChart: "PieChart",
     ColumnChart: "ColumnChart",
+    height: 500,
     options: {
-      height: 500,
       animation: {
         duration: 1000,
         easing: 'out',
