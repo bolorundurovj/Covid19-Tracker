@@ -14,13 +14,17 @@ export class HomeComponent implements OnInit {
   totalActive = 0;
   totalDeaths = 0;
   totalRecovered = 0;
+  globalData: GlobalDataSummary[];
+
+  loading = true;
+
   pieChart: GoogleChartInterface = {
     chartType: 'PieChart',
   };
   columnChart: GoogleChartInterface = {
     chartType: 'ColumnChart',
   };
-  globalData: GlobalDataSummary[];
+
 
   constructor(private dataService: DataServiceService) {}
 
@@ -101,6 +105,7 @@ export class HomeComponent implements OnInit {
           }
         });
         this.initChart('d');
+        this.loading = false;
       },
     });
   }
