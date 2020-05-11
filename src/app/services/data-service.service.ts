@@ -39,6 +39,7 @@ export class DataServiceService {
             mainData[con].push(dw);
           });
         });
+        console.log(mainData);
 
         return result;
       })
