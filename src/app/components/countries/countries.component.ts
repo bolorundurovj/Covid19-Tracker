@@ -20,9 +20,16 @@ export class CountriesComponent implements OnInit {
   dateWiseData;
   loading = true;
 
-  lineChart: GoogleChartInterface = {
-    chartType: 'LineChart',
-  };
+  chart = {
+    LineChart: "LineChart",
+    options: {
+      height: 500,
+      animation: {
+        duration: 1000,
+        easing: 'out',
+      },
+  }
+  }
 
   data: GlobalDataSummary[];
   countries: string[] = [];
@@ -59,18 +66,7 @@ export class CountriesComponent implements OnInit {
     this.selectedCountryData.forEach((cs) => {
       dataTable.push([cs.date, cs.cases]);
     });
-    this.lineChart = {
-      chartType: 'LineChart',
-      dataTable: dataTable,
-      //firstRowIsData: true,
-      options: {
-        height: 500,
-        animation: {
-          duration: 1000,
-          easing: 'out',
-        },
-      },
-    };
+    
   }
 
   updateValues(country: string) {
