@@ -14,11 +14,12 @@ export class DataServiceService {
   getDateWiseData() {
     return this.http.get(this.dateWiseDataUrl, { responseType: 'text' }).pipe(map((result) => {
       let rows = result.split('\n');
+      console.log(rows);
+      let mainData = {};
       let headers = rows[0];
       let dates= headers.split(/,(?=\S)/);
       dates.splice(0, 4);
       rows.splice(0, 1);
-      console.log(rows);
 
       rows.forEach(row => {
         let cols = row.split(/,(?=\S)/);
