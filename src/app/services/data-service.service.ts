@@ -36,6 +36,7 @@ export class DataServiceService {
               country: con,
               date: new Date(Date.parse(dates[index]))
             }
+            mainData[con].push(dw);
           });
         });
 
