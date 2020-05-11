@@ -105,8 +105,10 @@ export class HomeComponent implements OnInit {
           }
         });
         this.initChart('d');
-        this.loading = false;
       },
+      complete: () => {
+        this.loading = false;
+      }
     });
   }
   updateChart(input: HTMLInputElement) {
