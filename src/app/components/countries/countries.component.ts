@@ -44,6 +44,8 @@ export class CountriesComponent implements OnInit {
       )
     ).subscribe({
       complete: () => {
+        this.updateValues('Nigeria');
+        this.selectedCountryData = this.dateWiseData['Nigeria'];
         this.updateChart();
       },
     });
@@ -59,7 +61,13 @@ export class CountriesComponent implements OnInit {
       chartType: 'LineChart',
       dataTable: dataTable,
       //firstRowIsData: true,
-      options: { height: 500 },
+      options: {
+        height: 500,
+        animation: {
+          duration: 1000,
+          easing: 'out',
+        },
+      },
     };
   }
 
