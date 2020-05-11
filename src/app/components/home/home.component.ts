@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit {
         this.initChart('d');
       },
       complete: () => {
-        this.loading = false;
+        this.loading = false; 
       }
     });
   }
