@@ -24,6 +24,10 @@ export class CountriesComponent implements OnInit {
         this.countries.push(cs.country);
       });
     });
+
+    this.service.getDateWiseData().subscribe((result) => {
+      console.log(result);
+    })
   }
 
   updateValues(country: string) {
