@@ -62,10 +62,10 @@ export class CountriesComponent implements OnInit {
   }
 
   updateChart() {
-    let dataTable = [];
-    dataTable.push(['Date', 'Cases']);
+    this.dataTable = [];
+    //this.dataTable.push(['Date', 'Cases']);
     this.selectedCountryData.forEach((cs) => {
-      dataTable.push([cs.date, cs.cases]);
+      this.dataTable.push([cs.date, cs.cases]);
     });
 
   }
