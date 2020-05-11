@@ -5,8 +5,16 @@
   <div class="mx-auto">
     <div class="form-group col-lg-5 mx-auto">
       <label for="c" class="my-input">Select Country</label>
-      <select name="" id="c" class="form-control" #input (change)="updateValues(input.value)">
-        <option value="{{con}}" *ngFor="let con of countries">{{ con }}</option>
+      <select
+        name=""
+        id="c"
+        class="form-control"
+        #input
+        (change)="updateValues(input.value)"
+      >
+        <option value="{{ con }}" *ngFor="let con of countries">{{
+          con
+        }}</option>
       </select>
     </div>
 
@@ -18,31 +26,27 @@
     ></app-dashboard-cards>
 
     <div class="card row">
-
       <div class="col">
-        <google-chart [data]="selectedCountryData"></google-chart>
+        <google-chart [data]="lineChart"></google-chart>
       </div>
 
+      <table class="table col">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Cases</th>
+            <th>Date</th>
+          </tr>
+        </thead>
 
-        <table class="table col">
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>Cases</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr *ngFor='let cs of selectedCountryData; index as i'>
-              <td>{{i+1}}</td>
-              <td>{{cs.date | date}}</td>
-              <td>{{cs.cases}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-   
-
+        <tbody>
+          <tr *ngFor="let cs of selectedCountryData; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ cs.date | date }}</td>
+            <td>{{ cs.cases }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
