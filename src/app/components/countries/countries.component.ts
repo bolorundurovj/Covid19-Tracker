@@ -66,5 +66,6 @@ export class CountriesComponent implements OnInit {
     });
 
     this.selectedCountryData = this.dateWiseData[country];
+    this.updateChart();
   }
 }
