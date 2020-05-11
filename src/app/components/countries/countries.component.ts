@@ -42,9 +42,9 @@ export class CountriesComponent implements OnInit {
 
   updateChart() {
     let dataTable = [];
-    dataTable.push(['Cases', 'Date'])
+    dataTable.push(['Date', 'Cases'])
     this.selectedCountryData.forEach(cs => {
-      dataTable.push([cs.cases, cs.date])
+      dataTable.push([cs.date, cs.cases])
     })
     this.lineChart = ({
       chartType: 'LineChart',
