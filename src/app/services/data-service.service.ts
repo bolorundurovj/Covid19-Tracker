@@ -12,25 +12,27 @@ export class DataServiceService {
   constructor(private http: HttpClient) {}
 
   getDateWiseData() {
-    return this.http.get(this.dateWiseDataUrl, { responseType: 'text' }).pipe(map((result) => {
-      let rows = result.split('\n');
-      console.log(rows);
-      let mainData = {};
-      let headers = rows[0];
-      let dates= headers.split(/,(?=\S)/);
-      dates.splice(0, 4);
-      rows.splice(0, 1);
+    return this.http.get(this.dateWiseDataUrl, { responseType: 'text' }).pipe(
+      map((result) => {
+        let rows = result.split('\n');
+        console.log(rows);
+        let mainData = {};
+        let headers = rows[0];
+        let dates = headers.split(/,(?=\S)/);
+        dates.splice(0, 4);
+        rows.splice(0, 1);
 
-      rows.forEach(row => {
-        let cols = row.split(/,(?=\S)/);
-        let con = cols[1];
-        cols.splice(0, 4);
-        console.log(con, cols);
+        rows.forEach((row) => {
+          let cols = row.split(/,(?=\S)/);
+          let con = cols[1];
+          cols.splice(0, 4);
+          console.log(con, cols);
+          mainData[con] = [];
+        });
 
-      });
-
-      return result;
-    }))
+        return result;
+      })
+    );
   }
 
   getGlobalData() {
@@ -57,11 +59,10 @@ export class DataServiceService {
             temp.recovered = cs.recovered + temp.recovered;
 
             raw[cs.country] = temp;
-          }
-          else{
+          } else {
             raw[cs.country] = cs;
           }
-        })
+        });
         return <GlobalDataSummary[]>Object.values(raw);
       })
     );
