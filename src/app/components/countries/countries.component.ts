@@ -19,11 +19,12 @@ export class CountriesComponent implements OnInit {
   selectedCountryData: DateWiseData[];
   dateWiseData;
   loading = true;
+  datatable = [];
 
   chart = {
     LineChart: "LineChart",
+    height: 500,
     options: {
-      height: 500,
       animation: {
         duration: 1000,
         easing: 'out',
@@ -61,12 +62,12 @@ export class CountriesComponent implements OnInit {
   }
 
   updateChart() {
-    let dataTable = [];
-    dataTable.push(['Date', 'Cases']);
+
+    //this.datatable.push(['Date', 'Cases']);
     this.selectedCountryData.forEach((cs) => {
-      dataTable.push([cs.date, cs.cases]);
+      this.datatable.push([cs.date, cs.cases]);
     });
-    
+
   }
 
   updateValues(country: string) {
