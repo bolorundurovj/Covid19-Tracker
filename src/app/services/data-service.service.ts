@@ -11,6 +11,10 @@ export class DataServiceService {
   private dateWiseDataUrl = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv`;
   constructor(private http: HttpClient) {}
 
+  getDateWiseData() {
+    return this.http.get(this.dateWiseDataUrl, { responseType: 'text' })
+  }
+
   getGlobalData() {
     return this.http.get(this.globalDataUrl, { responseType: 'text' }).pipe(
       map((result) => {
